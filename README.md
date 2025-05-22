@@ -121,6 +121,7 @@ Edit
   background-color: #ffd700;
   color: #000;
 }
+```
 📄 Pages.jsx
 This component renders multiple products:
 
@@ -154,69 +155,3 @@ Edit
   gap: 2rem;
   padding: 2rem;
 }
-📦 Footer.jsx
-A simple footer component:
-
-jsx
-Copy
-Edit
-<footer className="footer">
-  <p>&copy; 2025 POD T-Shirt Store. All rights reserved.</p>
-</footer>
-🎥 Framer Motion Usage
-Used for entry animations and hover effects.
-
-jsx
-Copy
-Edit
-<motion.div
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  {/* Content */}
-</motion.div>
-📦 Installation & Setup
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/pod-tshirt-store.git
-cd pod-tshirt-store
-2. Install Dependencies
-bash
-Copy
-Edit
-npm install
-3. Start Development Server
-bash
-Copy
-Edit
-npm run dev
-Make sure vite is installed if you're using Vite.
-
-🌍 Deployment
-You can deploy the project using services like:
-
-Netlify
-
-Vercel
-
-Render
-
-📸 Screenshots
-You can include screenshots of your UI here for better presentation.
-
-📄 License
-MIT License
-
-👤 Author
-Made with ❤️ by Your Name
-
-yaml
-Copy
-Edit
-
----
-
-Would you like me to generate this as a downloadable `README.md` file now?
