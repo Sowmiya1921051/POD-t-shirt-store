@@ -1,7 +1,6 @@
-import React from "react";
-
-const Gallery = () => {
-
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./Gallery.css";
 
 const images = [
   { id: 1, title: "Pulse — D61", model: "Sofia Makarova", img: "assets/img16.webp" },
@@ -23,35 +22,46 @@ const images = [
 ];
 
 
+const gridItemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: i => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.07 }
+  })
+};
+
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 25 } },
+  exit: { opacity: 0, scale: 0.92 }
+};
+
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
     <>
       <div className="heading">
-        <h2 className="heading__title">Kaito Nakamo</h2>
+        <h2 className="heading__title">Shane Weber</h2>
         <span className="heading__meta">
-          effect 04: Quick upward motion with bold blending and smooth slow reveal.
+          effect 01: straight linear paths, smooth easing, clean timing, minimal rotation.
         </span>
       </div>
 
       <div className="grid">
-        {images.map(({ id, title, model, img }) => (
-          <figure
+        {images.map(({ id, title, model, img }, i) => (
+          <motion.figure
             key={id}
             className="grid__item"
             role="img"
             aria-labelledby={`caption${id}`}
-            data-steps="10"
-            data-step-duration="0.3"
-            data-path-motion="sine"
-            data-sine-amplitude="300"
-            data-clip-path-direction="left-right"
-            data-auto-adjust-horizontal-clip-path="true"
-            data-step-interval="0.07"
-            data-mover-pause-before-exit="0.3"
-            data-mover-enter-ease="sine"
-            data-mover-exit-ease="power4"
-            data-panel-reveal-ease="power4"
-            data-panel-reveal-duration-factor="4"
+            onClick={() => setSelectedImage({ title, model, img })}
+            custom={i}
+            initial="hidden"
+            animate="visible"
+            variants={gridItemVariants}
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 24px rgba(0,0,0,0.18)" }}
           >
             <div
               className="grid__item-image"
@@ -61,9 +71,48 @@ const images = [
               <h3>{title}</h3>
               <p>Model: {model}</p>
             </figcaption>
-          </figure>
+          </motion.figure>
         ))}
       </div>
+
+      <AnimatePresence>
+  {selectedImage && (
+    <motion.div
+      className="fullscreen-modal"
+      onClick={() => setSelectedImage(null)}
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
+      <motion.div
+        className="fullscreen-content"
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 40, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 22 }}
+        onClick={e => e.stopPropagation()}
+      >
+        <img src={selectedImage.img} alt={selectedImage.title} />
+        <h2>{selectedImage.title}</h2>
+        <p>Model: {selectedImage.model}</p>
+      </motion.div>
+      <motion.button
+        className="close-button"
+        onClick={e => {
+          e.stopPropagation();
+          setSelectedImage(null);
+        }}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      >
+        ×
+      </motion.button>
+    </motion.div>
+  )}
+</AnimatePresence>
     </>
   );
 };

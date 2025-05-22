@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import "./Gallery.css";
 
-const Gallery = () => {
-    const images = [
+ const images = [
         { id: 17, title: "Lumen — T34", model: "Elena Smirnova", img: "assets/img17.webp" },
         { id: 18, title: "Crush — W59", model: "Zara Ivanova", img: "assets/img18.webp" },
         { id: 19, title: "Halo — M98", model: "Olivia Martin", img: "assets/img19.webp" },
@@ -21,43 +22,99 @@ const Gallery = () => {
 
     ];
 
-    return (
-        <>
-            <div className="heading">
-                <h2 className="heading__title">mainka jorge</h2>
-                <span className="heading__meta">
-                    effect 02: Adjusts mover count, rotation, timing, and animation feel
-                </span>
-            </div>
+const gridItemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: i => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.07 }
+  })
+};
 
-            <div className="grid">
-                {images.map(({ id, title, model, img }) => (
-                    <figure key={id} className="grid__item" role="img" aria-labelledby={`caption${id}`}>
-                        <div
-                            className="grid__item-image"
-                            style={{ backgroundImage: `url(${img})` }}
-                        />
-                        <figcaption className="grid__item-caption" id={`caption${id}`}>
-                            <h3>{title}</h3>
-                            <p>Type: {model}</p>
-                        </figcaption>
-                    </figure>
-                ))}
-            </div>
+const modalVariants = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 25 } },
+  exit: { opacity: 0, scale: 0.92 }
+};
 
-            {/* Static Preview Panel */}
-            <figure className="panel" role="img" aria-labelledby="caption">
-                <div className="panel__img" style={{ backgroundImage: "url(assets/bakery1.webp)" }}></div>
-                <figcaption className="panel__content" id="caption">
-                    <h3>Choco Truffle</h3>
-                    <p>
-                        Rich and indulgent layers of chocolate sponge and ganache, crafted with precision and passion.
-                    </p>
-                    <button type="button" className="panel__close" aria-label="Close preview">Close</button>
-                </figcaption>
-            </figure>
-        </>
-    );
+const Gallery = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  return (
+    <>
+      <div className="heading">
+        <h2 className="heading__title">Shane Weber</h2>
+        <span className="heading__meta">
+          effect 01: straight linear paths, smooth easing, clean timing, minimal rotation.
+        </span>
+      </div>
+
+      <div className="grid">
+        {images.map(({ id, title, model, img }, i) => (
+          <motion.figure
+            key={id}
+            className="grid__item"
+            role="img"
+            aria-labelledby={`caption${id}`}
+            onClick={() => setSelectedImage({ title, model, img })}
+            custom={i}
+            initial="hidden"
+            animate="visible"
+            variants={gridItemVariants}
+            whileHover={{ scale: 1.04, boxShadow: "0 8px 24px rgba(0,0,0,0.18)" }}
+          >
+            <div
+              className="grid__item-image"
+              style={{ backgroundImage: `url(${img})` }}
+            />
+            <figcaption className="grid__item-caption" id={`caption${id}`}>
+              <h3>{title}</h3>
+              <p>Model: {model}</p>
+            </figcaption>
+          </motion.figure>
+        ))}
+      </div>
+
+      <AnimatePresence>
+  {selectedImage && (
+    <motion.div
+      className="fullscreen-modal"
+      onClick={() => setSelectedImage(null)}
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
+      <motion.div
+        className="fullscreen-content"
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 40, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 22 }}
+        onClick={e => e.stopPropagation()}
+      >
+        <img src={selectedImage.img} alt={selectedImage.title} />
+        <h2>{selectedImage.title}</h2>
+        <p>Model: {selectedImage.model}</p>
+      </motion.div>
+      <motion.button
+        className="close-button"
+        onClick={e => {
+          e.stopPropagation();
+          setSelectedImage(null);
+        }}
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      >
+        ×
+      </motion.button>
+    </motion.div>
+  )}
+</AnimatePresence>
+    </>
+  );
 };
 
 export default Gallery;
