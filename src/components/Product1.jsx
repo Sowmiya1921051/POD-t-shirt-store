@@ -28,6 +28,7 @@ const Gallery = () => {
           effect 01: straight linear paths, smooth easing, clean timing, minimal rotation.
         </span>
       </div>
+
       <div className="grid">
         {images.map(({ id, title, model, img }) => (
           <figure key={id} className="grid__item" role="img" aria-labelledby={`caption${id}`}>
@@ -42,7 +43,19 @@ const Gallery = () => {
           </figure>
         ))}
       </div>
-      
+
+      {/* Preview Panel */}
+      <figure className="panel" role="img" aria-labelledby="caption">
+        <div className="panel__img" style={{ backgroundImage: "url(assets/img1.webp)" }}></div>
+        <figcaption className="panel__content" id="caption">
+          <h3>murmur—207</h3>
+          <p>
+            Beneath the soft static of this lies a fragmented recollection of motion—faded pulses echoing through
+            time-warped layers of light and silence. A stillness wrapped in artifact.
+          </p>
+          <button type="button" className="panel__close" aria-label="Close preview">Close</button>
+        </figcaption>
+      </figure>
     </>
   );
 };
