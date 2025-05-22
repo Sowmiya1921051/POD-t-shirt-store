@@ -42,6 +42,7 @@ const Gallery = () => {
           </figure>
         ))}
       </div>
+      
     </>
   );
 };
