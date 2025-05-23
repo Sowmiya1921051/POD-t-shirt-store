@@ -2,6 +2,9 @@
 
 A sleek and animated React-based Print-On-Demand T-Shirt store using **Framer Motion** for smooth animations and a clean UI layout.
 
+
+> **Summary:** This project is a sleek and animated Print-On-Demand T-Shirt store. I converted the original static code into a fully functional **React.js** application using **component-based architecture**, integrated **Framer Motion** for animations, and optimized it for responsive performance.
+
 ---
 
 ## 🚀 Features
@@ -236,11 +239,11 @@ This project can be deployed to any of the following static‐site hosts:
 ## 📸 Screenshots
 
 ### 🖼️ T-Shirt Gallery Grid
-![Gallery Grid](![image](https://github.com/user-attachments/assets/158be0a2-c909-42fc-b24d-f963f313edd8)
-)
+<img src="https://github.com/user-attachments/assets/d3fff5e3-86e2-4d39-ad79-30f8f87f1c13" alt="Gallery Grid" width="600" height="350"/>
 
 ### 🧵 Fullscreen Preview with Custom Text
-![Fullscreen T-Shirt Preview](./screenshots/fullscreen-preview.png)
+<img src="./screenshots/fullscreen-preview.png" alt="Fullscreen Preview" width="600" height="350"/>
+
 
 
 # 📄 License
