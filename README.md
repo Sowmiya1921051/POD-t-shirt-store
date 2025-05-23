@@ -225,4 +225,4 @@ You can include screenshots of your UI here for better presentation.
 MIT License
 
 # 👤 Author
-## Made with ❤️ by Your Name
+### Made with 💗 by Sowmiya N
