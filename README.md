@@ -233,9 +233,15 @@ This project can be deployed to any of the following static‐site hosts:
    Refer to the official guide to resolve the issue:  
    https://developers.cloudflare.com/pages/platform/git-integration/#this-repository-is-being-used-for-a-cloudflare-pages-project-on-a-different-cloudflare-account
 
+## 📸 Screenshots
 
-# 📸 Screenshots
-You can include screenshots of your UI here for better presentation.
+### 🖼️ T-Shirt Gallery Grid
+![Gallery Grid](![image](https://github.com/user-attachments/assets/158be0a2-c909-42fc-b24d-f963f313edd8)
+)
+
+### 🧵 Fullscreen Preview with Custom Text
+![Fullscreen T-Shirt Preview](./screenshots/fullscreen-preview.png)
+
 
 # 📄 License
 MIT License
