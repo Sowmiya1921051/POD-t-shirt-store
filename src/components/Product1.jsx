@@ -30,12 +30,6 @@ const gridItemVariants = {
   })
 };
 
-const modalVariants = {
-  hidden: { opacity: 0, scale: 0.92 },
-  visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 25 } },
-  exit: { opacity: 0, scale: 0.92 }
-};
-
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -95,9 +89,12 @@ const Gallery = () => {
               <h2>{selectedImage.title}</h2>
               <p>Model: {selectedImage.model}</p>
 
-              {/* T-shirt image preview */}
               <div className="tshirt-display">
-                <img src={selectedImage.img} alt={selectedImage.title} className="tshirt-img" />
+                <img
+                  src={selectedImage.preview || selectedImage.img}
+                  alt={selectedImage.title}
+                  className="tshirt-img"
+                />
                 <div className="text-overlay">
                   {selectedImage.text?.split("\n").slice(0, 3).map((line, i) => (
                     <p key={i} className="overlay-line">{line}</p>
@@ -105,19 +102,32 @@ const Gallery = () => {
                 </div>
               </div>
 
-              {/* Text Input */}
+              <input
+                type="file"
+                accept="image/*"
+                className="upload-button"
+                onChange={(e) => {
+                  const file = e.target.files[0];
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onload = () =>
+                      setSelectedImage(prev => ({ ...prev, preview: reader.result }));
+                    reader.readAsDataURL(file);
+                  }
+                }}
+              />
+
               <textarea
                 className="tshirt-textarea"
                 placeholder="Type your T-shirt text (max 3 lines)..."
                 rows={3}
                 maxLength={180}
                 onChange={(e) =>
-                  setSelectedImage({ ...selectedImage, text: e.target.value })
+                  setSelectedImage(prev => ({ ...prev, text: e.target.value }))
                 }
               />
             </motion.div>
 
-            {/* Close Button */}
             <motion.button
               className="close-button"
               onClick={(e) => {
@@ -134,7 +144,6 @@ const Gallery = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
     </>
   );
 };
