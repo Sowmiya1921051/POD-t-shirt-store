@@ -217,16 +217,20 @@ This project can be deployed to any of the following static‐site hosts:
 
 ### Cloudflare Pages
 
-1. **Connect your repository**  
-   Link your GitHub repo to Cloudflare Pages and configure the build settings (e.g., `npm run build`, `build` directory).
+1. **Repository Connection**  
+   The GitHub repository has been linked to Cloudflare Pages with automatic deployments enabled on push to the main branch.
 
-2. **Deploy**  
-   Cloudflare Pages will automatically build and publish your site on every push to your main branch.
+2. **Live Deployment**  
+   🌐 [View Live Site](https://a885e38d.pod-t-shirt-store-a3m.pages.dev/)
 
-3. **Troubleshooting**  
-   If you encounter:
+4. **Build Settings**  
+   - **Build command:** `npm run build`  
+   - **Output directory:** `build`
+
+5. **Troubleshooting**  
+   If you encounter the error:  
    > “This repository is being used for a Cloudflare Pages project on a different Cloudflare account”  
-   follow the official guide to disconnect any existing Pages project before linking:  
+   Refer to the official guide to resolve the issue:  
    https://developers.cloudflare.com/pages/platform/git-integration/#this-repository-is-being-used-for-a-cloudflare-pages-project-on-a-different-cloudflare-account
 
 
