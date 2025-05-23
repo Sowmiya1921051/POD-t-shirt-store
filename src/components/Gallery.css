@@ -142,3 +142,50 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.tshirt-display {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  /* border: 2px solid #ccc; */
+}
+
+.tshirt-img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #111111;
+  text-align: center;
+  /* background: pink; */
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.4;
+  pointer-events: none;
+}
+
+.overlay-line {
+  margin: 4px 0;
+}
+
+.tshirt-textarea {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+}

@@ -75,43 +75,66 @@ const Gallery = () => {
       </div>
 
       <AnimatePresence>
-  {selectedImage && (
-    <motion.div
-      className="fullscreen-modal"
-      onClick={() => setSelectedImage(null)}
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-    >
-      <motion.div
-        className="fullscreen-content"
-        initial={{ y: 40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: 40, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 260, damping: 22 }}
-        onClick={e => e.stopPropagation()}
-      >
-        <img src={selectedImage.img} alt={selectedImage.title} />
-        <h2>{selectedImage.title}</h2>
-        <p>Model: {selectedImage.model}</p>
-      </motion.div>
-      <motion.button
-        className="close-button"
-        onClick={e => {
-          e.stopPropagation();
-          setSelectedImage(null);
-        }}
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 400, damping: 30 }}
-      >
-        ×
-      </motion.button>
-    </motion.div>
-  )}
-</AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            className="fullscreen-modal"
+            onClick={() => setSelectedImage(null)}
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          >
+            <motion.div
+              className="fullscreen-content"
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 40, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2>{selectedImage.title}</h2>
+              <p>Model: {selectedImage.model}</p>
+
+              {/* T-shirt image preview */}
+              <div className="tshirt-display">
+                <img src={selectedImage.img} alt={selectedImage.title} className="tshirt-img" />
+                <div className="text-overlay">
+                  {selectedImage.text?.split("\n").slice(0, 3).map((line, i) => (
+                    <p key={i} className="overlay-line">{line}</p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Text Input */}
+              <textarea
+                className="tshirt-textarea"
+                placeholder="Type your T-shirt text (max 3 lines)..."
+                rows={3}
+                maxLength={180}
+                onChange={(e) =>
+                  setSelectedImage({ ...selectedImage, text: e.target.value })
+                }
+              />
+            </motion.div>
+
+            {/* Close Button */}
+            <motion.button
+              className="close-button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            >
+              ×
+            </motion.button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </>
   );
 };
