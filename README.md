@@ -240,9 +240,9 @@ This project can be deployed to any of the following static‐site hosts:
 
 ### 🖼️ T-Shirt Gallery Grid
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/2d239512-1168-417e-b533-c09c3738176a" alt="Login Screen" width="200" height="400"/>
-  <img src="https://github.com/user-attachments/assets/ef45e2ef-d2da-471e-ad7a-4f792ef20209" alt="Chat View 1" width="200" height="400"/>
-  <img src="https://github.com/user-attachments/assets/fe0c0703-9f53-4c40-97c1-9488668a2759" alt="Chat View 2" width="200" height="400"/>
+  <img src="https://github.com/user-attachments/assets/2d239512-1168-417e-b533-c09c3738176a" alt="Login Screen" width="600" height="400"/>
+  <img src="https://github.com/user-attachments/assets/ef45e2ef-d2da-471e-ad7a-4f792ef20209" alt="Chat View 1" width="600" height="400"/>
+  <img src="https://github.com/user-attachments/assets/fe0c0703-9f53-4c40-97c1-9488668a2759" alt="Chat View 2" width="600" height="400"/>
 </div>
 
 ### 🧵 Fullscreen Preview with Custom Text
