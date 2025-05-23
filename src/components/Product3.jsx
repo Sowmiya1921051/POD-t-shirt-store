@@ -44,7 +44,7 @@ const Gallery = () => {
       <div className="heading">
         <h2 className="heading__title">Angela Wong</h2>
         <span className="heading__meta">
-         effect 03: Big arcs, smooth start, powerful snap, slow reveal.
+         effect 03: Big arcs, smooth start, powerful snap, slow reveal.w
         </span>
       </div>
 
