@@ -240,13 +240,15 @@ This project can be deployed to any of the following static‐site hosts:
 
 ### 🖼️ T-Shirt Gallery Grid
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/user-attachments/assets/2d239512-1168-417e-b533-c09c3738176a" alt="Login Screen" width="600" height="400"/>
-  <img src="https://github.com/user-attachments/assets/ef45e2ef-d2da-471e-ad7a-4f792ef20209" alt="Chat View 1" width="600" height="400"/>
-  <img src="https://github.com/user-attachments/assets/fe0c0703-9f53-4c40-97c1-9488668a2759" alt="Chat View 2" width="600" height="400"/>
+  <img src="https://github.com/user-attachments/assets/2d239512-1168-417e-b533-c09c3738176a" alt="Login Screen" width="400" height="400"/>
+  <img src="https://github.com/user-attachments/assets/ef45e2ef-d2da-471e-ad7a-4f792ef20209" alt="Chat View 1" width="400" height="400"/>
+  <img src="https://github.com/user-attachments/assets/fe0c0703-9f53-4c40-97c1-9488668a2759" alt="Chat View 2" width="400" height="400"/>
 </div>
 
 ### 🧵 Fullscreen Preview with Custom Text
-<img src="./screenshots/fullscreen-preview.png" alt="Fullscreen Preview" width="600" height="350"/>
+<img src="https://github.com/user-attachments/assets/0fc769b1-208a-4f2e-98f9-6dbd8a4d14d3" alt="Fullscreen Preview" width="600" height="350"/>
+<img src="https://github.com/user-attachments/assets/197c5602-5cce-46d1-993c-fd4129f5edfe" alt="Fullscreen Preview" width="600" height="350"/>
+<img src="https://github.com/user-attachments/assets/653ae40e-84d1-423f-84d8-6f73e38b269b" alt="Fullscreen Preview" width="600" height="350"/>
 
 
 
