@@ -224,7 +224,7 @@ This project can be deployed to any of the following static‐site hosts:
    The GitHub repository has been linked to Cloudflare Pages with automatic deployments enabled on push to the main branch.
 
 2. **Live Deployment**  
-   🌐 [View Live Site](https://a885e38d.pod-t-shirt-store-a3m.pages.dev/)
+   🌐 [View Live Site](https://pod-t-shirt-store-a3m.pages.dev/)
 
 4. **Build Settings**  
    - **Build command:** `npm run build`  
