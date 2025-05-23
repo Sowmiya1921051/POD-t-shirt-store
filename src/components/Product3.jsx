@@ -42,9 +42,9 @@ const Gallery = () => {
   return (
     <>
       <div className="heading">
-        <h2 className="heading__title">Shane Weber</h2>
+        <h2 className="heading__title">Angela Wong</h2>
         <span className="heading__meta">
-          effect 01: straight linear paths, smooth easing, clean timing, minimal rotation.
+         effect 03: Big arcs, smooth start, powerful snap, slow reveal.
         </span>
       </div>
 

@@ -43,9 +43,9 @@ const Gallery = () => {
   return (
     <>
       <div className="heading">
-        <h2 className="heading__title">Shane Weber</h2>
+        <h2 className="heading__title">Kaito Nakamo</h2>
         <span className="heading__meta">
-          effect 01: straight linear paths, smooth easing, clean timing, minimal rotation.
+          effect 04: Quick upward motion with bold blending and smooth slow reveal.
         </span>
       </div>
 
