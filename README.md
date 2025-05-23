@@ -209,14 +209,26 @@ npm run dev
 Make sure vite is installed if you're using Vite.
 ```
 
-# 🌍 Deployment
-You can deploy the project using services like:
+## 🌍 Deployment
 
-Netlify
+This project can be deployed to any of the following static‐site hosts:
 
-Vercel
+- **Cloudflare Pages** 
 
-Render
+### Cloudflare Pages
+
+1. **Connect your repository**  
+   Link your GitHub repo to Cloudflare Pages and configure the build settings (e.g., `npm run build`, `build` directory).
+
+2. **Deploy**  
+   Cloudflare Pages will automatically build and publish your site on every push to your main branch.
+
+3. **Troubleshooting**  
+   If you encounter:
+   > “This repository is being used for a Cloudflare Pages project on a different Cloudflare account”  
+   follow the official guide to disconnect any existing Pages project before linking:  
+   https://developers.cloudflare.com/pages/platform/git-integration/#this-repository-is-being-used-for-a-cloudflare-pages-project-on-a-different-cloudflare-account
+
 
 # 📸 Screenshots
 You can include screenshots of your UI here for better presentation.
